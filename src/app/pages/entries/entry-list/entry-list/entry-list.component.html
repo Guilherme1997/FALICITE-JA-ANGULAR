@@ -1,0 +1,60 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a routerLink="/">Home</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+            Lançamentos
+        </li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-6">
+
+    </div>
+    <div class="col-6 flex-end">
+        <a routerLink="new" role="button" class="btn btn-light btn-sm btn-newcategorie">
+            <i class="fas fa-plus"></i> Novo Lançamentos
+        </a>
+    </div>
+</div>
+<div class="row ">
+    <div class="col-12">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Lançamento</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Valor R$</th>
+
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let entry of entries;index as i">
+                    <td>{{i+1}} -
+                        <strong>{{entry.name}}</strong><br>
+                        <small class="text-success"> {{entry.date}}</small><br>
+                        <small *ngIf="entry.description">{{entry.description}}</small>
+                    </td>
+                    <td>
+                        {{entry.category.name}}
+                    </td>
+                    <td [class.text-success]="entry.type == 'revenue'"  [class.text-danger]="entry.type == 'expense' " >
+                       <span>{{entry.amount}}</span> 
+                       <br>
+                       <span class="badge badge-light">{{entry.paidText}}</span>
+                    </td>
+               
+                    <td>
+                        <a [routerLink]="[entry.id,'edit']" role="button"
+                            class="btn-table-actions btn btn-light btn-sm mr-4">Editar</a>
+                        <button data-toggle="modal" data-target="#confirmDelete" (click)="deleteEntry(entry)"
+                            type="button" class="btn-table-actions btn btn-danger btn-sm">Deletar</button>
+                    </td> 
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
