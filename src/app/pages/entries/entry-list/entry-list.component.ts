@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
-import { BaseResourceListComponent } from "../../../../shared/componentes/service/base-resource-list.component";
+import { BaseResourceListComponent } from "../../../shared/componentes/service/base-resource-list.component";
 
-import { Entry } from "../../shared/entry.model";
-import { WebApiService } from "../../../service/web.api.service";
+import { Entry } from "../shared/entry.model";
+import { WebApiService } from "../../service/web.api.service";
 
 @Component({
   selector: 'app-entry-list',

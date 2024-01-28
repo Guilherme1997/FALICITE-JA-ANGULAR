@@ -1,5 +1,5 @@
 import { BaseResourceModel } from "../../../shared/componentes/models/base-resource.models";
-import { Category } from "../../categories/shared/category.model";
+;
 
 export class Entry extends BaseResourceModel{
   constructor(
@@ -11,7 +11,7 @@ export class Entry extends BaseResourceModel{
     public date?: string,
     public paid?: boolean,
     public categoryId?: number,
-    public category?: Category
+
   ){ 
     super();
   }
@@ -29,4 +29,6 @@ export class Entry extends BaseResourceModel{
   get paidText(): string {
     return this.paid ? 'Pago' : 'Pedente';
   }
+
+
 }

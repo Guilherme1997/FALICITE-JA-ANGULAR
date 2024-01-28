@@ -7,7 +7,7 @@ import { Observable, throwError } from "rxjs";
 import { map, catchError } from "rxjs/operators";
 import { Entry } from '../entries/shared/entry.model';
 import { BaseResourceService } from "../../shared/componentes/service/base-resource.service";
-import { CategoryService } from "../../pages/categories/shared/service/category.service";
+
 
 
 @Injectable({
@@ -21,7 +21,7 @@ export class WebApiService   extends BaseResourceService<Entry> {
 
 
 
-    constructor(protected injector: Injector, private categoryService: CategoryService) { 
+    constructor(protected injector: Injector) { 
     super("api/entries", injector, Entry.fromJson);
   }
 

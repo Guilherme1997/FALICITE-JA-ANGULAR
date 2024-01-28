@@ -1,18 +1,22 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-import { EntriesRoutingModule } from './entries-routing.module';
-import { EntryListComponent } from './entry-list/entry-list/entry-list.component';
 import { SharedModule } from 'src/app/shared/module/shared.module';
 
+import { EntriesRoutingModule } from './entries-routing.module';
+
+
+import { CalendarModule } from "primeng/calendar";
+import { IMaskModule } from "angular-imask";
+
+import { EntryListComponent } from './entry-list/entry-list.component';
 
 
 @NgModule({
-  declarations: [EntryListComponent],
   imports: [
-    CommonModule,
     SharedModule,
     EntriesRoutingModule,
-  ]
+    CalendarModule,
+    IMaskModule
+  ],
+  declarations: [EntryListComponent]
 })
 export class EntriesModule { }

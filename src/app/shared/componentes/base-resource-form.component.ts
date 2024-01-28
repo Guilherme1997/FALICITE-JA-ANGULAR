@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 
 import { BaseResourceModel } from "../../shared/componentes/models/base-resource.models"
-import { ToastrService } from 'ngx-toastr';;
 
+import toastr from "toastr";
 
 @Directive()
 export abstract class BaseResourceFormComponent<T extends BaseResourceModel> implements OnInit, AfterContentChecked{
@@ -22,7 +22,6 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
   constructor(
     protected injector: Injector,
     public resource: T,
-    private toastr: ToastrService,
  
     protected jsonDataToResourceFn: (jsonData) => T
   ) { 
@@ -76,7 +75,7 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
 
   
   protected actionsForSuccess(resource: T){
-    this.toastr.success("Solicitação processada com sucesso!");
+    toastr.success("Solicitação processada com sucesso!");
 
     const baseComponentPath: string = this.route.snapshot.parent.url[0].path;
 
@@ -88,7 +87,7 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
 
 
   protected actionsForError(error){
-    this.toastr.error("Ocorreu um erro ao processar a sua solicitação!");
+    toastr.error("Ocorreu um erro ao processar a sua solicitação!");
 
     this.submittingForm = false;
 
