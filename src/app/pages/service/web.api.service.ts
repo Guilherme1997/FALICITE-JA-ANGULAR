@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable,Injector } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
@@ -6,21 +6,23 @@ import { Observable, throwError } from "rxjs";
 
 import { map, catchError } from "rxjs/operators";
 import { Entry } from '../entries/shared/entry.model';
+import { BaseResourceService } from "../../shared/componentes/service/base-resource.service";
+import { CategoryService } from "../../pages/categories/shared/service/category.service";
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class WebApiService {
+export class WebApiService   extends BaseResourceService<Entry> {
 
   headers: HttpHeaders;
 
   router: string;
 
-  constructor(private http: HttpClient) {
-    this.headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Accept': 'q=0.8;application/json;q=0.9'
-    });
+
+
+    constructor(protected injector: Injector, private categoryService: CategoryService) { 
+    super("api/entries", injector, Entry.fromJson);
   }
 
   private url: string = "api";
