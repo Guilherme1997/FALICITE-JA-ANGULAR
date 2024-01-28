@@ -11,11 +11,13 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDatabase } from './in-memory-database';
+import { PageHeaderComponent } from './shared/componentes/page-header/page-header.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    
   ],
   imports: [
     BrowserModule,
