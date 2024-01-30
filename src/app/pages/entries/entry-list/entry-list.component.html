@@ -1,16 +1,16 @@
 <app-bread-crumb
   [items]="[{text: 'Lançamentos'}]"
 ></app-bread-crumb>
-
-
-
+<div *ngIf="showAlert" class="alert alert-primary" role="alert">
+  {{message}}
+</div>
 
 <table class="table table-hover">
   <thead>
     <tr class="bg-primary text-light">
       <th>Lançamento</th>
       <th class="text-right">Valor R$</th>
-
+      <th class="text-right">Ação</th>
     </tr>
   </thead>
   <tbody>
@@ -20,7 +20,6 @@
         <small class="text-success">{{entry.date}}</small><br>
         <small *ngIf="entry.description">{{entry.description}}</small>
       </td>
-   
       <td class="text-right">
         <strong [class.text-success]="entry.type == 'revenue'" [class.text-danger]="entry.type == 'expense'">
           {{entry.amount}}
@@ -28,7 +27,15 @@
         <br>
         <span class="badge badge-light">{{entry.paidText}}</span>
       </td>
-  
+        <td class="text-right">
+          <small *ngIf="!entry.paid" >
+            <button (click)="getEntryForPay(entry)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">
+             Pagar
+            </button>
+          </small>
+        </td>
     </tr>
   </tbody>
 </table>
+
+<app-modal title="{{getTitleModal }}" [functionChild]="getTicked" message="{{message}}" content="{{ descriptionModalForPay}}" textButton="Gerar Boleto" (eventChild)="getResponse($event)"></app-modal>

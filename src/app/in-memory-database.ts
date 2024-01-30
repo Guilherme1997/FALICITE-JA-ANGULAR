@@ -8,7 +8,7 @@ export class InMemoryDatabase implements InMemoryDbService {
 
 
     const entries: Entry[] = [
-      { id: 1, name: 'Gás de Cozinha', paid: true, date: "14/10/2018", amount: "70,80", type: "expense", description: "Qualquer descrição para essa despesa" } as Entry,
+      { id: 1, name: 'Gás de Cozinha', paid: true, date: "14/10/2018", amount: "70,80", type: "expense" } as Entry,
       { id: 2, name: 'Suplementos', paid: false, date: "14/10/2018", amount: "15,00", type: "expense" } as Entry,
       { id: 3, name: 'Salário na Empresa X',  paid: true, date: "15/10/2018", amount: "4405,49", type: "revenue" } as Entry,
       { id: 4, name: 'Aluguel de Filme',  paid: true, date: "16/10/2018", amount: "15,00", type: "expense" } as Entry,

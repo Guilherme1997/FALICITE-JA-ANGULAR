@@ -1,0 +1,2 @@
+export const MESSAGE_PAY_ANALYSIS = "Após gerar o boleto, efetue o pagamento em até cinco dias antes do vencimento."
+"Quando o pagamento for confirmado, pode levar até 24 horas para que mude o status para pago"
