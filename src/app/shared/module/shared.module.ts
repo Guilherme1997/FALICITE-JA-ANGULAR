@@ -5,19 +5,22 @@ import { RouterModule } from "@angular/router";
 import { BreadCrumbComponent } from '../componentes/bread-crumb/bread-crumb.component';
 import { PageHeaderComponent } from '../componentes/page-header/page-header.component';
 import { ServerErrorMessagesComponent } from '../componentes/server-error-messages/server-error-messages.component';
-
+import { ModalComponent } from '../componentes/modal/modal.component';
+import { MessagesModule } from 'primeng/messages';
 
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    MessagesModule
   ],
   declarations: [
     BreadCrumbComponent,
     PageHeaderComponent,
-    ServerErrorMessagesComponent
+    ServerErrorMessagesComponent,
+    ModalComponent
   ],
   exports: [
     // shared modules
@@ -28,7 +31,8 @@ import { ServerErrorMessagesComponent } from '../componentes/server-error-messag
     // shared components
     BreadCrumbComponent,
     PageHeaderComponent,
-    ServerErrorMessagesComponent
+    ServerErrorMessagesComponent,
+    ModalComponent
   ]
 })
 export class SharedModule { }
