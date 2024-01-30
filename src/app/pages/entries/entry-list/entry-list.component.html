@@ -1,0 +1,34 @@
+<app-bread-crumb
+  [items]="[{text: 'Lançamentos'}]"
+></app-bread-crumb>
+
+
+
+
+<table class="table table-hover">
+  <thead>
+    <tr class="bg-primary text-light">
+      <th>Lançamento</th>
+      <th class="text-right">Valor R$</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let entry of resources">
+      <td>
+        <strong>{{entry.name}}</strong><br>
+        <small class="text-success">{{entry.date}}</small><br>
+        <small *ngIf="entry.description">{{entry.description}}</small>
+      </td>
+   
+      <td class="text-right">
+        <strong [class.text-success]="entry.type == 'revenue'" [class.text-danger]="entry.type == 'expense'">
+          {{entry.amount}}
+        </strong>
+        <br>
+        <span class="badge badge-light">{{entry.paidText}}</span>
+      </td>
+  
+    </tr>
+  </tbody>
+</table>
